@@ -1,5 +1,7 @@
 package Individuo;
 
+import java.util.Scanner;
+
 public class Endereco {
     private String rua;
     private String numero;
@@ -9,7 +11,7 @@ public class Endereco {
 
     /***************************************** CONSTRUTORES **************************************/
 
-    Endereco(){}
+    public Endereco(){}
 
     public Endereco(String rua, String numero, String cep, String complemento) {
         this.rua = rua;

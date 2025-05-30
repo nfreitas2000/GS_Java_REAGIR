@@ -23,6 +23,14 @@ public class PessoaFisica extends Pessoa {
         this.idade = idade;
     }
 
+    public PessoaFisica(){}
+
+    public PessoaFisica(Endereco endereco, ContatoPessoal contato, ContatoEmergencia contatoEmergencia){
+        this.endereco = endereco;
+        this.contato = contato;
+        this.contatoEmergencia = contatoEmergencia;
+    }
+
     /************************************ GETTERS AND SETTERS ***********************************/
 
     public String getCpf() {
@@ -168,7 +176,6 @@ public class PessoaFisica extends Pessoa {
                                 continue;
                             } else {
                                 setIdade(idadeDigitada);
-                                System.out.println("Idade atualizada!");
                             }
                             break;
                         default:
@@ -251,7 +258,7 @@ public class PessoaFisica extends Pessoa {
                             System.out.println("1 - Brasil (+55)");
                             System.out.println("2 - Portugal (+351)");
 
-                            System.out.println("Digite: ");
+                            System.out.print("Digite: ");
                             int ddiDigitado = Integer.parseInt(sc.nextLine());
 
                             if (ddiDigitado == 1) {
@@ -323,7 +330,7 @@ public class PessoaFisica extends Pessoa {
                     case 0:
                         break;
                     case 1:
-                        System.out.print("Digite o seu nome: ");
+                        System.out.print("Digite o nome completo do contato de emergência: ");
                         String nomeDigitado = sc.nextLine();
 
                         contatoEmergencia.setNomeEmergencia(nomeDigitado);
@@ -366,7 +373,7 @@ public class PessoaFisica extends Pessoa {
                             }
                         }
                         while (true) {
-                            System.out.print("Digite o número do seu telefone: ");
+                            System.out.print("Digite o número de telefone do contato de emergencia: ");
                             String telefoneDigitado = sc.nextLine();
 
                             telefoneDigitado = telefoneDigitado.trim();
@@ -400,5 +407,201 @@ public class PessoaFisica extends Pessoa {
                 break;
         }
 
+    }
+
+    public void criarPessoaFisica(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Para começarmos, vamos identificar quem é você!");
+        System.out.println("Preencha o seguinte cadastro:");
+
+        System.out.print("Nome: ");
+        setNome(sc.nextLine());
+        while (true) {
+            System.out.print("Digite seu CPF (apenas números): ");
+            String cpfDigitado = sc.nextLine();
+            if (cpfDigitado.length() == 11) {
+                setCpf(cpfDigitado);
+            } else {
+                System.out.println("CPF inválido. Tente novamente.");
+                continue;
+            }
+            break;
+        }
+        while (true) {
+            System.out.print("RG (Ex. 999999999): ");
+            String rgDigitado = sc.nextLine();
+
+            if (rgDigitado.length() == 9) {
+                System.out.println("RG digitado inválido. Tente novamente.");
+                continue;
+            } else {
+                setRg(rgDigitado);
+                System.out.println("RG atualizado!");
+            }
+            break;
+        }
+        while (true) {
+            System.out.print("Digite seu sexo (Masculino ou feminino): ");
+            String sexoDigitado = sc.nextLine();
+
+            sexoDigitado = sexoDigitado.toUpperCase();
+
+            if (sexoDigitado.equals("MASCULINO")) {
+                setSexo("Masculino");
+                System.out.println("Sexo atualizado!");
+            } else if (sexoDigitado.equals("FEMININO")) {
+                setSexo("Feminino");
+                System.out.println("Sexo atualizado!");
+            } else {
+                System.out.println("Sexo digitado inválido. Certifique-se de que escreveu 'Masculino' ou 'Feminino'");
+                continue;
+            }
+            break;
+        }
+        while (true) {
+            System.out.print("Digite quantos anos você tem: ");
+            int idadeDigitada = Integer.parseInt(sc.nextLine());
+            if (idadeDigitada > 120 || idadeDigitada < 0) {
+                System.out.println("Idade inválida. Tente novamente.");
+                continue;
+            } else {
+                setIdade(idadeDigitada);
+            }
+            break;
+        }
+        System.out.println("Ótimo! Agora preencha as informações do seu endereço:");
+        System.out.print("Digite a sua rua: ");
+        String ruaDigitada = sc.nextLine();
+        endereco.setRua(ruaDigitada);
+        System.out.print("Digite o número da sua moradia: ");
+        endereco.setNumero(sc.nextLine());
+        while (true) {
+            System.out.print("Digite o seu CEP (apenas números [Ex. XXXXXXXX]): ");
+            String cepDigitado = sc.nextLine();
+
+            if (cepDigitado.length() == 8) {
+                endereco.setCep(cepDigitado);
+            } else {
+                System.out.println("CEP inválido. Tente novamente");
+                continue;
+            }
+        break;
+        }
+        System.out.print("Digite o complemento: ");
+        endereco.setComplemento(sc.nextLine());
+        System.out.println("Agora vamos preencher alguns dados de contato seus:");
+        while (true) {
+            System.out.println("Qual o país de origem do número?");
+            System.out.println("1 - Brasil (+55)");
+            System.out.println("2 - Portugal (+351)");
+
+            System.out.print("Digite: ");
+            int ddiDigitado = Integer.parseInt(sc.nextLine());
+
+            if (ddiDigitado == 1) {
+                contato.setDdi("+55");
+                break;
+            } else if (ddiDigitado == 2) {
+                contato.setDdi("+351");
+                break;
+            } else {
+                System.out.println("País inválido! Tente novamente.");
+            }
+        }
+        while (true){
+            System.out.print("Digite o DDD do seu número: ");
+            String dddDigitado = sc.nextLine();
+
+            if (dddDigitado.length() > 3) {
+                System.out.println("DDD digitado inválido! Tente novamente");
+            } else {
+                contato.setDdd(dddDigitado);
+                break;
+            }
+        }
+        while (true) {
+            System.out.print("Digite o número do seu telefone: ");
+            String telefoneDigitado = sc.nextLine();
+
+            telefoneDigitado = telefoneDigitado.trim();
+            telefoneDigitado = telefoneDigitado.replace("-", "");
+
+            if (telefoneDigitado.length() != 9) {
+                System.out.println("Número inválido! Tente novamente");
+            } else {
+                contato.setCelular(telefoneDigitado);
+                break;
+            }
+        }
+        while (true) {
+            System.out.print("Digite seu email: ");
+            String emailDigitado = sc.nextLine();
+            System.out.println("===========================================================================");
+            if (emailDigitado.contains("@")) {
+                contato.setEmail(emailDigitado);
+                break;
+            } else {
+                System.out.println("E-mail inválido. Tenha certeza que contém '@'.");
+            }
+        }
+        System.out.println("Agora vamos preencher alguns dados de contato para uma emergência:");
+        System.out.print("Digite o nome completo do contato de emergência: ");
+        String nomeDigitado = sc.nextLine();
+
+        contatoEmergencia.setNomeEmergencia(nomeDigitado);
+        System.out.print("Digite o relacionamento da pessoa (Ex. Mãe, Pai, Irmão): ");
+        contatoEmergencia.setRelacionamento(sc.nextLine());
+        while (true) {
+            System.out.println("Qual o país de origem do número do contato de emergência?");
+            System.out.println("1 - Brasil (+55)");
+            System.out.println("2 - Portugal (+351)");
+
+            System.out.print("Digite: ");
+            int ddiDigitado = Integer.parseInt(sc.nextLine());
+
+            if (ddiDigitado == 1) {
+                contatoEmergencia.setDdiEmergencia("+55");
+                break;
+            } else if (ddiDigitado == 2) {
+                contatoEmergencia.setDdiEmergencia("+351");
+                break;
+            } else {
+                System.out.println("País inválido! Tente novamente.");
+            }
+        }
+        while (true){
+            System.out.print("Digite o DDD do telefone de emergência: ");
+            String dddDigitado = sc.nextLine();
+
+            if (dddDigitado.length() > 3) {
+                System.out.println("DDD digitado inválido! Tente novamente");
+            } else {
+                contatoEmergencia.setDddEmergencia(dddDigitado);
+                break;
+            }
+        }
+        while (true) {
+            System.out.print("Digite o número de telefone do contato de emergência: ");
+            String telefoneDigitado = sc.nextLine();
+
+            telefoneDigitado = telefoneDigitado.trim();
+            telefoneDigitado = telefoneDigitado.replace("-", "");
+
+            if (telefoneDigitado.length() != 9) {
+                System.out.println("Número inválido! Tente novamente");
+            } else {
+                contatoEmergencia.setNumCelularEmergencia(telefoneDigitado);
+                break;
+            }
+        }
+        System.out.print("Digite o email do contato de emergência: ");
+        String emailDigitado = sc.nextLine();
+        System.out.println("===========================================================================");
+        if (emailDigitado.contains("@")) {
+            contatoEmergencia.setEmailEmergencia(emailDigitado);
+        } else {
+            System.out.println("E-mail inválido. Tenha certeza que contém '@'.");
+        }
     }
 }

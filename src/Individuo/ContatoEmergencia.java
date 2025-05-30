@@ -10,7 +10,7 @@ public class ContatoEmergencia{
 
     /*************************************** CONSTRUTORES ***************************************/
 
-    ContatoEmergencia(){}
+    public ContatoEmergencia(){}
 
     public ContatoEmergencia(String nomeEmergencia, String relacionamento, String emailEmergencia, String ddiEmergencia, String dddEmergencia, String numCelularEmergencia) {
         this.nomeEmergencia = nomeEmergencia;
@@ -77,6 +77,6 @@ public class ContatoEmergencia{
         return "Nome: " + getNomeEmergencia() + "\n" +
                 "Relacionamento: " + getRelacionamento() + "\n" +
                 "Email: " + getEmailEmergencia() + "\n" +
-                "Número do celular: " + "(" + getDdiEmergencia() + ")" + " +" + getDddEmergencia() + " " + getNumCelularEmergencia();
+                "Número do celular: " + "(" + getDdiEmergencia() + ")" + " +" + getDddEmergencia() + " " + getNumCelularEmergencia().substring(0,5) + "-" + getNumCelularEmergencia().substring(5);
     }
 }

@@ -8,7 +8,7 @@ public class ContatoPessoal {
 
     /*************************************** CONSTRUTORES ***************************************/
 
-    ContatoPessoal(){}
+    public ContatoPessoal(){}
 
     public ContatoPessoal(String email, String ddi, String ddd, String numCelular) {
         this.email = email;
