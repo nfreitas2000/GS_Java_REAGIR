@@ -95,9 +95,7 @@ public class Conta {
 
             }
         }
-
     }
-
     public boolean verificadorLogin(String user, String senha){
         if (user.equals(getUsuario()) && (senha.equals(getSenha())))
             return true;

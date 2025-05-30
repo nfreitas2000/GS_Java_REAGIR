@@ -183,6 +183,8 @@ public class Main {
                         switch (escolha_pessoaC) {
                             case 0:
                                 break;
+                            case 3:
+
                             case 7:
                                 contaNova.getPf().getDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
