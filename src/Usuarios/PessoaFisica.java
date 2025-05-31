@@ -68,7 +68,6 @@ public class PessoaFisica extends Pessoa {
     /***************************************** MÉTODOS ******************************************/
     @Override
     public void getDadosPessoa() {
-        System.out.println("========================================================");
         System.out.println("Dados Pessoais -------------------");
         System.out.println("Nome: " + super.getNome());
         System.out.println("CPF: " + getCpf().substring(0, 3) + "." + getCpf().substring(3, 6) + "." + getCpf().substring(6, 9) + "-" + getCpf().substring(9) );

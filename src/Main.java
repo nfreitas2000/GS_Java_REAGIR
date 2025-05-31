@@ -1,3 +1,6 @@
+import Funcionalidades.ApoioPsicologico;
+import Funcionalidades.CompartilharLocalizacao;
+import Funcionalidades.MapearRotas;
 import Individuo.ContatoEmergencia;
 import Individuo.ContatoPessoal;
 import Individuo.Endereco;
@@ -10,6 +13,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        //===========================================================================================================
+
+        //INSTÂNCIA DAS CLASSES DE FUNCIONALIDADES
+
+        ApoioPsicologico apoioPsicologico = new ApoioPsicologico();
+        CompartilharLocalizacao compartilharLocalizacao = new CompartilharLocalizacao();
+        MapearRotas mapearRotas = new MapearRotas();
 
         //===========================================================================================================
 
@@ -88,18 +99,34 @@ public class Main {
                         switch (escolha_pessoaF) {
                             case 0:
                                 break;
+                            case 1:
+                                System.out.println("==================================================================================");
+                                compartilharLocalizacao.compartilharLocalizacao(pessoaFisica);
+                                continue;
+                            case 2:
+                                System.out.println("==================================================================================");
+                                mapearRotas.mapearRotas(pessoaFisica);
+                                continue;
+                            case 3:
+                                System.out.println("==================================================================================");
+                                apoioPsicologico.realizarApoioPsicologicoComeco();
+                                continue;
                             case 7:
+                                System.out.println("==================================================================================");
                                 pessoaFisica.getDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
                             case 8:
+                                System.out.println("==================================================================================");
                                 pessoaFisica.alterarDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
                             default:
+                                System.out.println("==================================================================================");
                                 System.out.println("Item selecionado inválido. Tente novamente.");
+                                continue;
                         }break;
                     }continue;
                 case 2:
@@ -124,20 +151,36 @@ public class Main {
                         switch (escolha_pessoaJ) {
                             case 0:
                                 break;
+                            case 1:
+                                System.out.println("==================================================================================");
+                                compartilharLocalizacao.compartilharLocalizacao(pessoaJuridica);
+                                continue;
+                            case 2:
+                                System.out.println("==================================================================================");
+                                mapearRotas.mapearRotas(pessoaJuridica);
+                                continue;
+                            case 3:
+                                System.out.println("==================================================================================");
+                                apoioPsicologico.realizarApoioPsicologicoComeco();
+                                continue;
                             case 7:
+                                System.out.println("==================================================================================");
                                 pessoaJuridica.getDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
                             case 8:
+                                System.out.println("==================================================================================");
                                 pessoaJuridica.alterarDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
                             default:
+                                System.out.println("==================================================================================");
                                 System.out.println("Item selecionado inválido. Tente novamente.");
+                                continue;
                         }break;
-                    }
+                    }continue;
                 case 3:
                     while (true) {
                         System.out.println("Deseja realizar:");
@@ -150,7 +193,6 @@ public class Main {
                         if (escolha_entrada == 1) {
                             if (contaNova.realizarLogin()) {
                                 break;
-                            } else {
                             }
                         } else if (escolha_entrada == 2) {
 
@@ -183,23 +225,38 @@ public class Main {
                         switch (escolha_pessoaC) {
                             case 0:
                                 break;
+                            case 1:
+                                System.out.println("==================================================================================");
+                                compartilharLocalizacao.compartilharLocalizacao(pessoaNovo);
+                                continue;
+                            case 2:
+                                System.out.println("==================================================================================");
+                                mapearRotas.mapearRotas(pessoaNovo);
+                                continue;
                             case 3:
-
+                                System.out.println("==================================================================================");
+                                apoioPsicologico.realizarApoioPsicologicoComeco();
+                                continue;
                             case 7:
+                                System.out.println("==================================================================================");
                                 contaNova.getPf().getDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
                             case 8:
+                                System.out.println("==================================================================================");
                                 contaNova.getPf().alterarDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
                             default:
+                                System.out.println("==================================================================================");
                                 System.out.println("Item selecionado inválido. Tente novamente.");
+                                continue;
                         }break;
                     }
                 default:
+                    System.out.println("==================================================================================");
                     System.out.println("Item digitado inválido. Tente novamente.");
                     continue;
             } break;
