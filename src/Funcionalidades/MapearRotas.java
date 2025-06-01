@@ -6,28 +6,10 @@ import Usuarios.PessoaJuridica;
 import java.util.Scanner;
 
 public class MapearRotas implements InteligenciaArtificial{
-    private PessoaFisica pf;
-    private PessoaJuridica pj;
+
     /***************************************** CONSTRUTORES **************************************/
 
     public MapearRotas() {}
-
-    /************************************ GETTERS AND SETTERS ***********************************/
-    public PessoaFisica getPf() {
-        return pf;
-    }
-
-    public void setPf(PessoaFisica pf) {
-        this.pf = pf;
-    }
-
-    public PessoaJuridica getPj() {
-        return pj;
-    }
-
-    public void setPj(PessoaJuridica pj) {
-        this.pj = pj;
-    }
 
     /***************************************** MÉTODOS ******************************************/
 

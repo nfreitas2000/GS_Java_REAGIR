@@ -1,6 +1,4 @@
-import Funcionalidades.ApoioPsicologico;
-import Funcionalidades.CompartilharLocalizacao;
-import Funcionalidades.MapearRotas;
+import Funcionalidades.*;
 import Individuo.ContatoEmergencia;
 import Individuo.ContatoPessoal;
 import Individuo.Endereco;
@@ -21,6 +19,15 @@ public class Main {
         ApoioPsicologico apoioPsicologico = new ApoioPsicologico();
         CompartilharLocalizacao compartilharLocalizacao = new CompartilharLocalizacao();
         MapearRotas mapearRotas = new MapearRotas();
+        GerarRelatorio gerarRelatorio = new GerarRelatorio();
+
+        ConteudosEducativos c1 = new ConteudosEducativos("Como agir durante um alagamento", "Alagamentos", "Evite áreas alagadas, desligue a energia elétrica e procure abrigo em locais elevados. Mantenha documentos e objetos importantes em sacos plásticos.");
+        ConteudosEducativos c2 = new ConteudosEducativos("Prevenção contra incêndios residenciais", "Incêndios", "Não sobrecarregue tomadas, mantenha velas longe de objetos inflamáveis e tenha um extintor de incêndio por perto. Em caso de fumaça, mantenha-se próximo ao chão.");
+        ConteudosEducativos c3 = new ConteudosEducativos("O que fazer após um terremoto", "Terremotos", "Após o tremor, verifique danos estruturais. Evite elevadores, desligue o gás e saia para um local aberto. Sintonize rádios locais para atualizações.");
+        ConteudosEducativos c4 = new ConteudosEducativos();
+
+        RelatarDesastre relatarDesastre = new RelatarDesastre();
+        AjudaComunitaria ajudaComunitaria = new AjudaComunitaria(1,2,3,2);
 
         //===========================================================================================================
 
@@ -79,6 +86,7 @@ public class Main {
                     break;
                 case 1:
                     while (true) {
+                        System.out.println("==================================================================================");
                         System.out.println("Seja bem-vindo(a), " + pessoaFisica.getNome() + "!");
                         System.out.println("O que deseja realizar?");
                         System.out.println("0 - Sair");
@@ -111,6 +119,69 @@ public class Main {
                                 System.out.println("==================================================================================");
                                 apoioPsicologico.realizarApoioPsicologicoComeco();
                                 continue;
+                            case 4:
+                                System.out.println("==================================================================================");
+                                gerarRelatorio.gerarRelatorio(pessoaFisica);
+                                continue;
+                            case 5:
+                                while (true) {
+                                    System.out.println("Seja bem-vindo(a) a aba de conteúdos educativos! Selecione o que você deseja fazer:");
+                                    System.out.println("0 - Sair");
+                                    System.out.println("1 - Verificar conteúdos");
+                                    System.out.println("2 - Escrever um conteúdo");
+
+                                    System.out.print("Digite: ");
+                                    int escolha_conteudo = Integer.parseInt(sc.nextLine());
+
+                                    switch (escolha_conteudo) {
+                                        case 0:
+                                            break;
+                                        case 1:
+                                            while (true) {
+                                                if (c4.getTitulo().equals("")) {
+                                                    System.out.println("Escolha qual conteúdo você deseja visualizar:");
+                                                    System.out.println("0 - Sair");
+                                                    System.out.println("1 - " + c1.getTitulo());
+                                                    System.out.println("2 - " + c2.getTitulo());
+                                                    System.out.println("3 - " + c3.getTitulo());
+                                                } else {
+                                                    System.out.println("Escolha qual conteúdo você deseja visualizar:");
+                                                    System.out.println("0 - Sair");
+                                                    System.out.println("1 - " + c1.getTitulo());
+                                                    System.out.println("2 - " + c2.getTitulo());
+                                                    System.out.println("3 - " + c3.getTitulo());
+                                                    System.out.println("4 - " + c4.getTitulo());
+                                                }
+
+                                                System.out.print("Digite: ");
+                                                int escolha_visualizar = Integer.parseInt(sc.nextLine());
+                                                switch (escolha_visualizar){
+                                                    case 0:
+                                                        break;
+                                                    case 1:
+                                                        c1.exibirArtigo();
+                                                        continue;
+                                                    case 2:
+                                                        c2.exibirArtigo();
+                                                        continue;
+                                                    case 3:
+                                                        c3.exibirArtigo();
+                                                        continue;
+                                                    case 4:
+                                                        c4.exibirArtigo();
+                                                        continue;
+                                                    default:
+                                                        System.out.println("Artigo inexistente. Tente novamente.");
+                                                }break;
+                                            }continue;
+                                        case 2:
+                                            c4.criarArtigo();
+                                            continue;
+                                    }break;
+                                }continue;
+                            case 6:
+                                ajudaComunitaria.ajudaComunitaria();
+                                continue;
                             case 7:
                                 System.out.println("==================================================================================");
                                 pessoaFisica.getDadosPessoa();
@@ -123,6 +194,9 @@ public class Main {
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
+                            case 9:
+                                relatarDesastre.criarRelatorio(pessoaFisica);
+                                continue;
                             default:
                                 System.out.println("==================================================================================");
                                 System.out.println("Item selecionado inválido. Tente novamente.");
@@ -131,6 +205,7 @@ public class Main {
                     }continue;
                 case 2:
                     while (true) {
+                        System.out.println("==================================================================================");
                         System.out.println("Seja bem-vindo(a), " + pessoaJuridica.getNome() + "!");
                         System.out.println("O que deseja realizar?");
                         System.out.println("0 - Sair");
@@ -163,6 +238,69 @@ public class Main {
                                 System.out.println("==================================================================================");
                                 apoioPsicologico.realizarApoioPsicologicoComeco();
                                 continue;
+                            case 4:
+                                System.out.println("==================================================================================");
+                                gerarRelatorio.gerarRelatorio(pessoaJuridica);
+                                continue;
+                            case 5:
+                                while (true) {
+                                    System.out.println("Seja bem-vindo(a) a aba de conteúdos educativos! Selecione o que você deseja fazer:");
+                                    System.out.println("0 - Sair");
+                                    System.out.println("1 - Verificar conteúdos");
+                                    System.out.println("2 - Escrever um conteúdo");
+
+                                    System.out.print("Digite: ");
+                                    int escolha_conteudo = Integer.parseInt(sc.nextLine());
+
+                                    switch (escolha_conteudo) {
+                                        case 0:
+                                            break;
+                                        case 1:
+                                            while (true) {
+                                                if (c4.getTitulo().equals("")) {
+                                                    System.out.println("Escolha qual conteúdo você deseja visualizar:");
+                                                    System.out.println("0 - Sair");
+                                                    System.out.println("1 - " + c1.getTitulo());
+                                                    System.out.println("2 - " + c2.getTitulo());
+                                                    System.out.println("3 - " + c3.getTitulo());
+                                                } else {
+                                                    System.out.println("Escolha qual conteúdo você deseja visualizar:");
+                                                    System.out.println("0 - Sair");
+                                                    System.out.println("1 - " + c1.getTitulo());
+                                                    System.out.println("2 - " + c2.getTitulo());
+                                                    System.out.println("3 - " + c3.getTitulo());
+                                                    System.out.println("4 - " + c4.getTitulo());
+                                                }
+
+                                                System.out.print("Digite: ");
+                                                int escolha_visualizar = Integer.parseInt(sc.nextLine());
+                                                switch (escolha_visualizar){
+                                                    case 0:
+                                                        break;
+                                                    case 1:
+                                                        c1.exibirArtigo();
+                                                        continue;
+                                                    case 2:
+                                                        c2.exibirArtigo();
+                                                        continue;
+                                                    case 3:
+                                                        c3.exibirArtigo();
+                                                        continue;
+                                                    case 4:
+                                                        c4.exibirArtigo();
+                                                        continue;
+                                                    default:
+                                                        System.out.println("Artigo inexistente. Tente novamente.");
+                                                }break;
+                                            }continue;
+                                        case 2:
+                                            c4.criarArtigo();
+                                            continue;
+                                    }break;
+                                }continue;
+                            case 6:
+                                ajudaComunitaria.ajudaComunitaria();
+                                continue;
                             case 7:
                                 System.out.println("==================================================================================");
                                 pessoaJuridica.getDadosPessoa();
@@ -174,6 +312,9 @@ public class Main {
                                 pessoaJuridica.alterarDadosPessoa();
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
+                                continue;
+                            case 9:
+                                relatarDesastre.criarRelatorio(pessoaJuridica);
                                 continue;
                             default:
                                 System.out.println("==================================================================================");
@@ -205,6 +346,7 @@ public class Main {
                         }
                     }
                     while (true) {
+                        System.out.println("==================================================================================");
                         System.out.println("Seja bem-vindo(a), " + contaNova.getPf().getNome() + "!");
                         System.out.println("O que deseja realizar?");
                         System.out.println("0 - Sair");
@@ -237,6 +379,69 @@ public class Main {
                                 System.out.println("==================================================================================");
                                 apoioPsicologico.realizarApoioPsicologicoComeco();
                                 continue;
+                            case 4:
+                                System.out.println("==================================================================================");
+                                gerarRelatorio.gerarRelatorio(pessoaNovo);
+                                continue;
+                            case 5:
+                                while (true) {
+                                    System.out.println("Seja bem-vindo(a) a aba de conteúdos educativos! Selecione o que você deseja fazer:");
+                                    System.out.println("0 - Sair");
+                                    System.out.println("1 - Verificar conteúdos");
+                                    System.out.println("2 - Escrever um conteúdo");
+
+                                    System.out.print("Digite: ");
+                                    int escolha_conteudo = Integer.parseInt(sc.nextLine());
+
+                                    switch (escolha_conteudo) {
+                                        case 0:
+                                            break;
+                                        case 1:
+                                            while (true) {
+                                                if (c4.getTitulo().equals("")) {
+                                                    System.out.println("Escolha qual conteúdo você deseja visualizar:");
+                                                    System.out.println("0 - Sair");
+                                                    System.out.println("1 - " + c1.getTitulo());
+                                                    System.out.println("2 - " + c2.getTitulo());
+                                                    System.out.println("3 - " + c3.getTitulo());
+                                                } else {
+                                                    System.out.println("Escolha qual conteúdo você deseja visualizar:");
+                                                    System.out.println("0 - Sair");
+                                                    System.out.println("1 - " + c1.getTitulo());
+                                                    System.out.println("2 - " + c2.getTitulo());
+                                                    System.out.println("3 - " + c3.getTitulo());
+                                                    System.out.println("4 - " + c4.getTitulo());
+                                                }
+
+                                                System.out.print("Digite: ");
+                                                int escolha_visualizar = Integer.parseInt(sc.nextLine());
+                                                switch (escolha_visualizar){
+                                                    case 0:
+                                                        break;
+                                                    case 1:
+                                                        c1.exibirArtigo();
+                                                        continue;
+                                                    case 2:
+                                                        c2.exibirArtigo();
+                                                        continue;
+                                                    case 3:
+                                                        c3.exibirArtigo();
+                                                        continue;
+                                                    case 4:
+                                                        c4.exibirArtigo();
+                                                        continue;
+                                                    default:
+                                                        System.out.println("Artigo inexistente. Tente novamente.");
+                                                }break;
+                                            }continue;
+                                        case 2:
+                                            c4.criarArtigo();
+                                            continue;
+                                    }break;
+                                }continue;
+                            case 6:
+                                ajudaComunitaria.ajudaComunitaria();
+                                continue;
                             case 7:
                                 System.out.println("==================================================================================");
                                 contaNova.getPf().getDadosPessoa();
@@ -249,12 +454,15 @@ public class Main {
                                 System.out.print("Pressione uma tecla para continuar . . .");
                                 sc.nextLine();
                                 continue;
+                            case 9:
+                                relatarDesastre.criarRelatorio(pessoaJuridica);
+                                continue;
                             default:
                                 System.out.println("==================================================================================");
                                 System.out.println("Item selecionado inválido. Tente novamente.");
                                 continue;
                         }break;
-                    }
+                    }continue;
                 default:
                     System.out.println("==================================================================================");
                     System.out.println("Item digitado inválido. Tente novamente.");
