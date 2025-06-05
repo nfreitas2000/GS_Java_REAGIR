@@ -56,5 +56,4 @@ public abstract class Pessoa {
     public abstract void getDadosPessoa();
 
     public abstract void alterarDadosPessoa();
-
 }

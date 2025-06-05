@@ -21,6 +21,8 @@ public class PessoaJuridica extends Pessoa {
         this.atividade = atividade;
     }
 
+    PessoaJuridica(){}
+
     /************************************ GETTERS AND SETTERS ***********************************/
 
     public String getCnpj() {

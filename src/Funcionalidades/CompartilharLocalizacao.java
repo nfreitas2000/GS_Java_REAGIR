@@ -3,11 +3,20 @@ package Funcionalidades;
 import Usuarios.PessoaFisica;
 import Usuarios.PessoaJuridica;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class CompartilharLocalizacao {
-    private String data;
-    private String hora;
+    private LocalDate data;
+    private LocalTime hora;
+
+    //Instanciação do objeto formatador da data e hora
+    //Em suma, formatoDia e formatoHora carregam como deve ser a formatação, e ao utilizar o metodo .format(), tendo um deles como parametro, o atributo do tipo LocalDate ou LocalTime será exibido no formato deles
+
+    DateTimeFormatter formatoDia = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     /***************************************** CONSTRUTORES **************************************/
 
@@ -15,19 +24,19 @@ public class CompartilharLocalizacao {
 
     /************************************ GETTERS AND SETTERS ***********************************/
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 
@@ -48,11 +57,21 @@ public class CompartilharLocalizacao {
             System.out.println("A localização atual (" + pf.getEndereco().getRua() + ", " + pf.getEndereco().getNumero() + ") foi compartilhada com membros de sua rede, que incluem: ");
             System.out.println(pf.getContatoEmergencia().getNomeEmergencia() + " (" +  pf.getContatoEmergencia().getRelacionamento() + ")");
 
-            setData("31/05/2025");
-            setHora("00:52");
+            //PROCESSO DE FORMATAÇÃO DA DATA
+            //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+            //depois basta printar esse objeto
 
-            System.out.println("Data de compartilhamento: " + getData());
-            System.out.println("Hora de compartilhamento: " + getHora());
+            //PROCESSO DE FORMATAÇÃO DA HORA
+            //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+            //depois basta printar esse objeto
+
+            setData(LocalDate.now());
+            setHora(LocalTime.now());
+            String dataFormatada = getData().format(formatoDia);
+            String horaFormatada = getHora().format(formatoHora);
+
+            System.out.println("Data de compartilhamento: " + dataFormatada);
+            System.out.println("Hora de compartilhamento: " + horaFormatada);
 
             System.out.println("==================================================================================");
             System.out.print("Pressione uma tecla para continuar . . .");
@@ -87,11 +106,21 @@ public class CompartilharLocalizacao {
             System.out.println("A localização atual (" + pj.getEndereco().getRua() + ", " + pj.getEndereco().getNumero() + ") foi compartilhada com membros de sua rede, que incluem: ");
             System.out.println(pj.getContatoEmergencia().getNomeEmergencia() + " (" +  pj.getContatoEmergencia().getRelacionamento() + ")");
 
-            setData("31/05/2025");
-            setHora("00:52");
+            //PROCESSO DE FORMATAÇÃO DA DATA
+            //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+            //depois basta printar esse objeto
 
-            System.out.println("Data de compartilhamento: " + getData());
-            System.out.println("Hora de compartilhamento: " + getHora());
+            //PROCESSO DE FORMATAÇÃO DA HORA
+            //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+            //depois basta printar esse objeto
+
+            setData(LocalDate.now());
+            setHora(LocalTime.now());
+            String dataFormatada = getData().format(formatoDia);
+            String horaFormatada = getHora().format(formatoHora);
+
+            System.out.println("Data de compartilhamento: " + dataFormatada);
+            System.out.println("Hora de compartilhamento: " + horaFormatada);
 
             System.out.println("==================================================================================");
             System.out.print("Pressione uma tecla para continuar . . .");

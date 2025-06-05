@@ -38,7 +38,7 @@ public class Main {
         ContatoEmergencia contatoEmergenciaPessoaFisica = new ContatoEmergencia("Katarina", "Mãe", "katarina@gmail.com", "+55", "11", "888888888");
 
 
-        PessoaFisica pessoaFisica = new PessoaFisica("Eduardo", contatoEmergenciaPessoaFisica, contatoPessoalPessoaFisica, enderecoPessoaFisica, "12345678901", "1231231231", "Masculino",27);
+        PessoaFisica pessoaFisica = new PessoaFisica("Eduardo", contatoEmergenciaPessoaFisica, contatoPessoalPessoaFisica, enderecoPessoaFisica, "12345678901", "123123123", "Masculino",27);
 
 
         //===========================================================================================================
@@ -117,7 +117,7 @@ public class Main {
                                 continue;
                             case 3:
                                 System.out.println("==================================================================================");
-                                apoioPsicologico.realizarApoioPsicologicoComeco();
+                                apoioPsicologico.realizarApoioPsicologico();
                                 continue;
                             case 4:
                                 System.out.println("==================================================================================");
@@ -236,7 +236,7 @@ public class Main {
                                 continue;
                             case 3:
                                 System.out.println("==================================================================================");
-                                apoioPsicologico.realizarApoioPsicologicoComeco();
+                                apoioPsicologico.realizarApoioPsicologico();
                                 continue;
                             case 4:
                                 System.out.println("==================================================================================");
@@ -377,7 +377,7 @@ public class Main {
                                 continue;
                             case 3:
                                 System.out.println("==================================================================================");
-                                apoioPsicologico.realizarApoioPsicologicoComeco();
+                                apoioPsicologico.realizarApoioPsicologico();
                                 continue;
                             case 4:
                                 System.out.println("==================================================================================");

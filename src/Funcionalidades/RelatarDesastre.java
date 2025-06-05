@@ -3,15 +3,24 @@ package Funcionalidades;
 import Usuarios.PessoaFisica;
 import Usuarios.PessoaJuridica;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class RelatarDesastre {
     private String desastre;
     private String autor;
     private String localizacao;
-    private String dia;
-    private String hora;
+    private LocalDate dia;
+    private LocalTime hora;
     private String relato;
+
+    //Instanciação do objeto formatador da data e hora
+    //Em suma, formatoDia e formatoHora carregam como deve ser a formatação, e ao utilizar o metodo .format(), tendo um deles como parametro, o atributo do tipo LocalDate ou LocalTime será exibido no formato deles
+
+    DateTimeFormatter formatoDia = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     /***************************************** CONSTRUTORES **************************************/
 
@@ -51,19 +60,19 @@ public class RelatarDesastre {
         this.localizacao = localizacao;
     }
 
-    public String getDia() {
+    public LocalDate getDia() {
         return dia;
     }
 
-    public void setDia(String dia) {
+    public void setDia(LocalDate dia) {
         this.dia = dia;
     }
 
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 
@@ -78,10 +87,23 @@ public class RelatarDesastre {
         System.out.println(getAutor());
         System.out.println("Localização -------------------");
         System.out.println(getLocalizacao());
+
         System.out.println("Data -------------------");
-        System.out.println(getDia());
+        //PROCESSO DE FORMATAÇÃO DA DATA
+        //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+        //depois basta printar esse objeto
+
+        String dataFormatada = getDia().format(formatoDia);
+        System.out.println(dataFormatada);
+
         System.out.println("Hora -------------------");
-        System.out.println(getHora());
+        //PROCESSO DE FORMATAÇÃO DA HORA
+        //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+        //depois basta printar esse objeto
+
+        String horaFormatada = getHora().format(formatoHora);
+        System.out.println(horaFormatada);
+
         System.out.println("Desastre -------------------");
         System.out.println(getDesastre());
         System.out.println("Relato -------------------");
@@ -126,8 +148,8 @@ public class RelatarDesastre {
             setRelato(relatorio);
 
             setAutor(pf.getNome());
-            setDia("31/05/2025");
-            setHora("20:36");
+            setDia(LocalDate.now());
+            setHora(LocalTime.now());
             setLocalizacao(pf.getEndereco().getDadosEndereco());
 
             Relatorio();
@@ -168,8 +190,8 @@ public class RelatarDesastre {
             setRelato(relatorio);
 
             setAutor(pj.getNome());
-            setDia("31/05/2025");
-            setHora("20:36");
+            setDia(LocalDate.now());
+            setHora(LocalTime.now());
             setLocalizacao(pj.getEndereco().getDadosEndereco());
 
             Relatorio();

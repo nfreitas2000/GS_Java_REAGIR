@@ -11,7 +11,7 @@ public class Conta {
 
     /*************************************** CONSTRUTORES ***************************************/
 
-    Conta(String usuario, String senha, PessoaJuridica pj){
+    public Conta(String usuario, String senha, PessoaJuridica pj){
         this.usuario = usuario;
         this.senha = senha;
         this.pj = pj;
@@ -23,7 +23,7 @@ public class Conta {
         this.pf = pf;
     }
 
-    Conta(){}
+    public Conta(){}
 
     /************************************ GETTERS AND SETTERS ***********************************/
 

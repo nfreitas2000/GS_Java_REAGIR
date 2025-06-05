@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ApoioPsicologico implements InteligenciaArtificial{
 
-    public void realizarApoioPsicologicoComeco(){
+    public void realizarApoioPsicologico(){
         Scanner sc = new Scanner(System.in);
 
         while (true) {

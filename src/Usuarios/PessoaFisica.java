@@ -428,15 +428,14 @@ public class PessoaFisica extends Pessoa {
             break;
         }
         while (true) {
-            System.out.print("RG (Ex. 999999999): ");
+            System.out.print("RG (Ex. 9999999999): ");
             String rgDigitado = sc.nextLine();
 
             if (rgDigitado.length() == 9) {
+                setRg(rgDigitado);
+            } else {
                 System.out.println("RG digitado inválido. Tente novamente.");
                 continue;
-            } else {
-                setRg(rgDigitado);
-                System.out.println("RG atualizado!");
             }
             break;
         }
@@ -448,10 +447,8 @@ public class PessoaFisica extends Pessoa {
 
             if (sexoDigitado.equals("MASCULINO")) {
                 setSexo("Masculino");
-                System.out.println("Sexo atualizado!");
             } else if (sexoDigitado.equals("FEMININO")) {
                 setSexo("Feminino");
-                System.out.println("Sexo atualizado!");
             } else {
                 System.out.println("Sexo digitado inválido. Certifique-se de que escreveu 'Masculino' ou 'Feminino'");
                 continue;

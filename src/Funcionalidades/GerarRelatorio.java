@@ -3,11 +3,20 @@ package Funcionalidades;
 import Usuarios.PessoaFisica;
 import Usuarios.PessoaJuridica;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class GerarRelatorio implements InteligenciaArtificial{
-    private String data;
-    private String hora;
+    private LocalDate data;
+    private LocalTime hora;
+
+    //Instanciação do objeto formatador da data e hora
+    //Em suma, formatoDia e formatoHora carregam como deve ser a formatação, e ao utilizar o metodo .format(), tendo um deles como parametro, o atributo do tipo LocalDate ou LocalTime será exibido no formato deles
+
+    DateTimeFormatter formatoDia = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     /***************************************** CONSTRUTORES **************************************/
 
@@ -15,19 +24,19 @@ public class GerarRelatorio implements InteligenciaArtificial{
 
     /************************************ GETTERS AND SETTERS ***********************************/
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 
@@ -57,11 +66,21 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Alerta de Alagamento: Nas últimas 48 horas, foram registrados alagamentos na região informada. ");
                     System.out.println("Evite transitar por ruas com acúmulo de água e procure rotas alternativas.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaAlagamento = getData().format(formatoDia);
+                    String horaFormatadaAlagamento = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaAlagamento);
+                    System.out.println("Hora do relatório: " + horaFormatadaAlagamento);
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
@@ -71,11 +90,21 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Atenção: Focos de incêndio foram detectados próximos à sua região. ");
                     System.out.println("Evite áreas de vegetação seca e mantenha janelas fechadas para evitar a inalação de fumaça.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaIncendio = getData().format(formatoDia);
+                    String horaFormatadaIncendio = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaIncendio);
+                    System.out.println("Hora do relatório: " + horaFormatadaIncendio);
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
@@ -85,11 +114,21 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Risco de Deslizamento: Chuvas intensas aumentaram o risco de deslizamentos nas áreas próximas. ");
                     System.out.println("Se você estiver em zona de morro ou encosta, considere evacuar preventivamente.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaDeslizamento = getData().format(formatoDia);
+                    String horaFormatadaDeslizamento = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaDeslizamento);
+                    System.out.println("Hora do relatório: " + horaFormatadaDeslizamento);
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
@@ -99,11 +138,22 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Tremor Registrado: Um leve terremoto foi sentido nas proximidades.");
                     System.out.println("Ainda que sem danos estruturais reportados, verifique rachaduras em paredes e evite elevadores.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaTerremoto = getData().format(formatoDia);
+                    String horaFormatadaTerremoto = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaTerremoto);
+                    System.out.println("Hora do relatório: " + horaFormatadaTerremoto);
+                    System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
                     continue;
@@ -135,11 +185,21 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Alerta de Alagamento: Nas últimas 48 horas, foram registrados alagamentos na região informada. ");
                     System.out.println("Evite transitar por ruas com acúmulo de água e procure rotas alternativas.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaAlagamento = getData().format(formatoDia);
+                    String horaFormatadaAlagamento = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaAlagamento);
+                    System.out.println("Hora do relatório: " + horaFormatadaAlagamento);
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
@@ -148,11 +208,21 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Atenção: Focos de incêndio foram detectados próximos à sua região. ");
                     System.out.println("Evite áreas de vegetação seca e mantenha janelas fechadas para evitar a inalação de fumaça.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaIncendio = getData().format(formatoDia);
+                    String horaFormatadaIncendio = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaIncendio);
+                    System.out.println("Hora do relatório: " + horaFormatadaIncendio);
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
@@ -162,11 +232,21 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Risco de Deslizamento: Chuvas intensas aumentaram o risco de deslizamentos nas áreas próximas. ");
                     System.out.println("Se você estiver em zona de morro ou encosta, considere evacuar preventivamente.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaDeslizamento = getData().format(formatoDia);
+                    String horaFormatadaDeslizamento = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaDeslizamento);
+                    System.out.println("Hora do relatório: " + horaFormatadaDeslizamento);
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
@@ -176,11 +256,22 @@ public class GerarRelatorio implements InteligenciaArtificial{
                     System.out.println("Tremor Registrado: Um leve terremoto foi sentido nas proximidades.");
                     System.out.println("Ainda que sem danos estruturais reportados, verifique rachaduras em paredes e evite elevadores.");
 
-                    setData("31/05/2025");
-                    setHora("19:05");
+                    //PROCESSO DE FORMATAÇÃO DA DATA
+                    //Instancia um objeto String que vai armazenar o valor da Data (adquirido pelo getData) já formatado
+                    //depois basta printar esse objeto
 
-                    System.out.println("Data do relatório: " + getData());
-                    System.out.println("Hora do relatório: " + getHora());
+                    //PROCESSO DE FORMATAÇÃO DA HORA
+                    //Instancia um objeto String que vai armazenar o valor da hora (adquirido pelo getHora) já formatado
+                    //depois basta printar esse objeto
+
+                    setData(LocalDate.now());
+                    setHora(LocalTime.now());
+                    String dataFormatadaTerremoto = getData().format(formatoDia);
+                    String horaFormatadaTerremoto = getHora().format(formatoHora);
+
+                    System.out.println("Data do relatório: " + dataFormatadaTerremoto);
+                    System.out.println("Hora do relatório: " + horaFormatadaTerremoto);
+
                     System.out.println("==================================================================================");
                     System.out.print("Pressione uma tecla para continuar . . .");
                     sc.nextLine();
